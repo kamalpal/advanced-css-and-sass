@@ -6,3 +6,32 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/* Universal selecter - selects all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* includes the padding and boder in the height/width */
+}
+
+/* Defining properties in the body to be inherited */
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7; /* Means the line height is 1.7% bigger than the default */
+    color: #777;
+    padding: 30px;
+}
+
+.header {
+    height: 95vh;
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba(126, 213, 111, 0.8), 
+        rgba(40, 180, 131, 0.8)
+    ), url(../img/hero.jpg);
+    background-size: cover;
+    background-position: top; /* keeps the defined position in focus across different sizes or resizing */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
