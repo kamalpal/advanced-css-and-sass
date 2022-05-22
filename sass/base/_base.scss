@@ -1,0 +1,14 @@
+/* Universal selecter - selects all elements */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    /* includes the padding and boder in the height/width */
+}
+
+/* Defining properties in the body to be inherited */
+body {
+    box-sizing: border-box;
+}
