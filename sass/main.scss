@@ -12,6 +12,7 @@ $color-primary-light: #7ed56f;
 $color-primary-dark: #28b485;
 $color-gray-dark: #777;
 $color-white: #fff;
+$color-black: #000;
 
 /* Universal selecter - selects all elements */
 *,
@@ -45,25 +46,25 @@ body {
     position: relative;
 
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-}
 
-.header__logo-box {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-}
+    &__logo-box {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+    }
 
-.header__logo {
-    height: 35px;
-}
+    &__logo {
+        height: 35px;
+    }
 
-.header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* center positioning correctly */
-    text-align: center;
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* center positioning correctly */
+        text-align: center;
+    }
 }
 
 .heading-primary {
@@ -74,32 +75,32 @@ body {
     backface-visibility: hidden;
 
     margin-bottom: 60px;
-}
 
-.heading-primary--main {
-    display: block;
-    font-size: 60px;
-    font-weight: 400;
-    letter-spacing: 35px;
+    &--main {
+        display: block;
+        font-size: 60px;
+        font-weight: 400;
+        letter-spacing: 35px;
 
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
 
-    /* 
+        /* 
     animation-delay: 3s;
     animation-iteration-count: 3;
     */
-}
+    }
 
-.heading-primary--sub {
-    display: block;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 17.4px;
+    &--sub {
+        display: block;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 17.4px;
 
-    animation: moveInRight 1s ease-out;
-    /* shorthand */
+        animation: moveInRight 1s ease-out;
+        /* shorthand */
+    }
 }
 
 @keyframes moveInLeft {
@@ -146,59 +147,62 @@ body {
     }
 }
 
-/* :link is a pseudo class of button selector. It's a state of the selector and in this case it's state of button selector */
-/* :visited represents 1+ times visits */
-.btn:link,
-.btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 15px 40px;
-    display: inline-block;
-    border-radius: 100px;
-    transition: all .2s;
-    position: relative;
-}
 
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
-}
+.btn {
+    /* :link is a pseudo class of button selector. It's a state of the selector and in this case it's state of button selector */
+    /* :visited represents 1+ times visits */
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 15px 40px;
+        display: inline-block;
+        border-radius: 100px;
+        transition: all .2s;
+        position: relative;
+    }
 
-.btn:active {
-    /* clicked */
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
-}
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba($color-black, .2);
 
-.btn--white {
-    background-color: $color-white;
-    color: $color-gray-dark;
-}
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
 
-.btn::after {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 100px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all .4s;
-}
+    &:active {
+        /* clicked */
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px rgba($color-black, .2);
+    }
 
-.btn--white::after {
-    background-color: $color-white;
-}
+    &--white {
+        background-color: $color-white;
+        color: $color-gray-dark;
 
-.btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-}
+        &:after {
+            background-color: $color-white;
+        }
+    }
 
-.btn--animated {
-    animation: moveInBottom .5s ease-out .75s;
-    animation-fill-mode: backwards;
-    /* Applies the animation of 0% before start */
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 100px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+    }
+
+    &--animated {
+        animation: moveInBottom .5s ease-out .75s;
+        animation-fill-mode: backwards;
+        /* Applies the animation of 0% before start */
+    }
 }
