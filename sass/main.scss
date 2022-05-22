@@ -7,11 +7,20 @@ Dark green: #28b485
 
 */
 
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+$color-gray-dark: #777;
+$color-white: #fff;
+
 /* Universal selecter - selects all elements */
-* {
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* includes the padding and boder in the height/width */
+    box-sizing: border-box;
+    /* includes the padding and boder in the height/width */
 }
 
 /* Defining properties in the body to be inherited */
@@ -19,20 +28,20 @@ body {
     font-family: 'Lato', sans-serif;
     font-weight: 400;
     font-size: 16px;
-    line-height: 1.7; /* Means the line height is 1.7% bigger than the default */
-    color: #777;
+    line-height: 1.7;
+    /* Means the line height is 1.7% bigger than the default */
+    color: $color-gray-dark;
     padding: 30px;
 }
 
 .header {
     height: 95vh;
-    background-image: linear-gradient(
-        to right bottom, 
-        rgba(126, 213, 111, 0.8), 
-        rgba(40, 180, 131, 0.8)
-    ), url(../img/hero.jpg);
+    background-image: linear-gradient(to right bottom,
+            rgba($color-primary-light, 0.8),
+            rgba($color-primary-dark, 0.8)), url(../img/hero.jpg);
     background-size: cover;
-    background-position: top; /* keeps the defined position in focus across different sizes or resizing */
+    background-position: top;
+    /* keeps the defined position in focus across different sizes or resizing */
     position: relative;
 
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
@@ -52,12 +61,13 @@ body {
     position: absolute;
     top: 40%;
     left: 50%;
-    transform: translate(-50%, -50%); /* center positioning correctly */
+    transform: translate(-50%, -50%);
+    /* center positioning correctly */
     text-align: center;
 }
 
 .heading-primary {
-    color: #fff;
+    color: $color-white;
     text-transform: uppercase;
 
     /* It represents to hide the back of element if rotating. It also fixes animation glitches, not sure why */
@@ -75,7 +85,7 @@ body {
     animation-name: moveInLeft;
     animation-duration: 1s;
     animation-timing-function: ease-out;
-    
+
     /* 
     animation-delay: 3s;
     animation-iteration-count: 3;
@@ -88,7 +98,8 @@ body {
     font-weight: 700;
     letter-spacing: 17.4px;
 
-    animation: moveInRight 1s ease-out; /* shorthand */
+    animation: moveInRight 1s ease-out;
+    /* shorthand */
 }
 
 @keyframes moveInLeft {
@@ -153,14 +164,15 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
 }
 
-.btn:active { /* clicked */
+.btn:active {
+    /* clicked */
     transform: translateY(-1px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
 }
 
 .btn--white {
-    background-color: #fff;
-    color: #777;
+    background-color: $color-white;
+    color: $color-gray-dark;
 }
 
 .btn::after {
@@ -177,7 +189,7 @@ body {
 }
 
 .btn--white::after {
-    background-color: #fff;
+    background-color: $color-white;
 }
 
 .btn:hover::after {
@@ -187,5 +199,6 @@ body {
 
 .btn--animated {
     animation: moveInBottom .5s ease-out .75s;
-    animation-fill-mode: backwards; /* Applies the animation of 0% before start */
+    animation-fill-mode: backwards;
+    /* Applies the animation of 0% before start */
 }
